@@ -1,4 +1,4 @@
-package com.clases;
+package com.classes;
 
 public class IntegralObject {
 	private String className;

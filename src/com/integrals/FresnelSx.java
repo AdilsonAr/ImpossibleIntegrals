@@ -1,6 +1,6 @@
 package com.integrals;
 
-import com.clases.Integral;
+import com.classes.Integral;
 
 public class FresnelSx extends Integral{
 	private final String NAME="Fresnel's Integral S(x)";

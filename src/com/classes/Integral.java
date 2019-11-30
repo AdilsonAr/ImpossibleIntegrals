@@ -1,4 +1,4 @@
-package com.clases;
+package com.classes;
 
 public abstract class Integral {
 	private Integral integral;

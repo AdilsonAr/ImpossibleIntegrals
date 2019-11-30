@@ -1,9 +1,9 @@
-package com.clases;
+package com.classes;
 import java.io.File;
 import java.lang.reflect.*;
 import java.util.*;
 
-import com.Connections.DAOIntegralObject;
+import com.connections.DAOIntegralObject;
 
 public class IntegralsGenerator {
 

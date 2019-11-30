@@ -1,11 +1,12 @@
-package com.Connections;
+package com.connections;
 
-import com.clases.IntegralObject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import org.hibernate.cfg.annotations.ResultsetMappingSecondPass;
+
+import com.classes.IntegralObject;
 
 public class DAOIntegralObject extends MyConnection{
 	
