@@ -52,7 +52,8 @@ public class Results extends HttpServlet {
 	        	Class<?> integral=Class.forName("com.integrals."+name);
 	        	Integral in=(Integral) integral.newInstance();
 	        	in.setIntegral(in);
-	        	double area=in.calculate(0, x);
+	        	
+	        	double area=in.calculate(0,x,in.getFactor());
 	        	answer = f.format(area);     	
 	        }
 	        

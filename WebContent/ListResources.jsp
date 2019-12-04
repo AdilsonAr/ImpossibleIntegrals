@@ -29,7 +29,6 @@ String action="Parameters.jsp";
 %>
 
 <%
-
 out.println("<table>");
 for(IntegralObject current:lista)
 {

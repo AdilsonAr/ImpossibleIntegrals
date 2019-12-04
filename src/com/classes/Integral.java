@@ -9,12 +9,18 @@ public abstract class Integral {
 	{
 		this.factor=factor;
 	}
+	
+	public double getFactor()
+	{
+		return factor;
+	}
+	
 	public void setIntegral(Integral integral)
 	{
 		this.integral=integral;
 	}
 	
-	public double calculate(double a,double b)
+	public double calculate(double a,double b,double factor)
 	{
 		double result=0;
 		double step=(b-a)/PARTITIONS_NUMBER;
@@ -33,7 +39,7 @@ public abstract class Integral {
 		}
 		
 		
-		return (step/3)*result;
+		return factor*(step/3)*result;
 	}
 
 }
