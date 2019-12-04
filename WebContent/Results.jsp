@@ -21,8 +21,6 @@ catch(Exception e)
 {
 	out.print("El dato ingresado no es valido :(");
 }
-
-out.print(x);
 %>
 </body>
 </html>

@@ -13,6 +13,11 @@
 <title>Choose a integral</title>
 </head>
 <body style="background-color:blue;">
+
+<h3 style="color:red;font-size: large;">
+<a href="Home.html">/Home</a>
+</h3>
+
 <br>
 <h2 style="text-align:center">
 here you have the list of integrals available at this time
@@ -24,6 +29,7 @@ String action="Parameters.jsp";
 %>
 
 <%
+
 out.println("<table>");
 for(IntegralObject current:lista)
 {
@@ -51,6 +57,8 @@ for(IntegralObject current:lista)
 	out.println("</tr>");
 }
 out.println("</table>");
+
+session.setAttribute("begin", 1);
 %>
 
 </body>
