@@ -2,8 +2,15 @@ package com.classes;
 public abstract class Integral {
 	private Integral integral;
 	private final int PARTITIONS_NUMBER=100;
+	
+	public double miscellaneous(double a,double b,double factor)
+	{
+		return 0;
+	}
+	
 	abstract public double evalue(double v);
 	private double factor=1;
+	private boolean miscellaneous=false;
 	
 	public void setFactor(double factor)
 	{
@@ -13,6 +20,16 @@ public abstract class Integral {
 	public double getFactor()
 	{
 		return factor;
+	}
+	
+	public void setMiscellaneous(boolean miscellaneous)
+	{
+		this.miscellaneous=miscellaneous;
+	}
+	
+	public boolean getMiscellaneous()
+	{
+		return miscellaneous;
 	}
 	
 	public void setIntegral(Integral integral)

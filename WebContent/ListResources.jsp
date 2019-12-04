@@ -17,7 +17,7 @@
 <h3 style="color:red;font-size: large;">
 <a href="Home.html">/Home</a>
 </h3>
-
+  
 <br>
 <h2 style="text-align:center">
 here you have the list of integrals available at this time

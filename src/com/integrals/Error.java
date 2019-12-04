@@ -21,5 +21,4 @@ public class Error extends Integral{
 	public double evalue(double v) {
 		return Math.pow(Math.E, -Math.pow(v, 2));
 	}
-
 }

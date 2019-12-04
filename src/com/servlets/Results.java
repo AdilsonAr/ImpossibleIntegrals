@@ -53,7 +53,15 @@ public class Results extends HttpServlet {
 	        	Integral in=(Integral) integral.newInstance();
 	        	in.setIntegral(in);
 	        	
-	        	double area=in.calculate(0,x,in.getFactor());
+	        	double area=0;
+	        	if(in.getMiscellaneous())
+	        	{
+	        		area=in.miscellaneous(0,x,in.getFactor());
+	        	}
+	        	else
+	        	{
+	        		area=in.calculate(0,x,in.getFactor());
+	        	}	        	
 	        	answer = f.format(area);     	
 	        }
 	        
