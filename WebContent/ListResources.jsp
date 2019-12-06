@@ -18,7 +18,6 @@
 <a href="Home.html">/Home</a>
 </h3>
   
-<br>
 <h2 style="text-align:center">
 here you have the list of integrals available at this time
 </h2><br>
@@ -35,9 +34,8 @@ for(IntegralObject current:lista)
 	Class<?> element=Class.forName("com.integrals."+current.getClassName());
 	Object element2=element.newInstance();
 	
-	String path="C:/Users/KGB/Desktop/Java/Workspace/ImpossibleIntegrals/src/com/images/";
+	String path="images/";
 	path+=current.getClassName()+".png";
-	
 	Method getName =element.getMethod("getName");
 	String description=(String) getName.invoke(element2);
 	
@@ -48,6 +46,7 @@ for(IntegralObject current:lista)
 	out.println("<input type=\"hidden\" name=\"name\" value=\""+current.getClassName()+"\">");
 	out.println("<input type=\"hidden\" name=\"description\" value=\""+description+"\">");
 	out.println("</form>");	
+	out.println("<hr>");
 	out.println("</td>");
 	
 	out.println("<td>");

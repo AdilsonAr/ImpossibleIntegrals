@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
 public class MyConnection {
 	Connection con;
 	
@@ -28,7 +26,6 @@ public class MyConnection {
 		}
 		catch(SQLException | ClassNotFoundException e)
 		{
-			JOptionPane.showMessageDialog(null, "error al conectar "+e.getMessage());
 		}
 	}
 	
@@ -44,7 +41,6 @@ public class MyConnection {
 		
 		catch(Exception e)
 		{
-			JOptionPane.showMessageDialog(null, "error al desconectar "+e.getMessage());
 		}
 	}
 
