@@ -41,7 +41,7 @@ public class Results extends HttpServlet {
 		
 		if(error)
 		{
-			answer="El dato ingresado no es valido :(";
+			answer="the parameter is not allowed :(";
 		}
 		else
 		{
@@ -72,7 +72,7 @@ public class Results extends HttpServlet {
 			
 			if(error)
 			{
-				answer="ocurrio un error :( ";
+				answer="a error has appeared :( ";
 			}
 				        
 			answer="Result: "+answer;			

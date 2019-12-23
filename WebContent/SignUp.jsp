@@ -43,7 +43,7 @@ if(error)
 
 <h3 style="color:red;font-size: large;text-align: left;">
 <a href="Home.html">/Home</a>
-<a href="Sign.html">/Sing in</a>
+<a href="SignIn.jsp">/Sign in</a>
 </h3>
 
 <h3 style="margin-top:130px;color:white;">Insert your information to sign up in this site</h3><br>
@@ -108,10 +108,9 @@ if(errorPass)out.print("style=\"background-color:red;\"");
 %>>
 </td>
 </tr>
-
 <tr>
 <td>
-write your password again:
+write your password again: 
 </td>
 <td>
 <input type="password" name="pass2"<%if(errorPass)out.print("style=\"background-color:red;\"");%>>
@@ -125,11 +124,14 @@ if(errorPass)
 </td>
 </tr>
 </table>
-<br><br>
 <%
 if(errorBlank)
 {
-	out.println("<p style=\"color:red\">all fields are required</p>"+"<br>"+errorE_mail);
+	out.println("<p style=\"color:red\">all fields are required</p>");
+}
+else
+{
+	out.print("<br><br>");
 }
 %>
 <input type="submit" value="Sign Up" style="width: 160px; height: 40px;font-size: medium;">

@@ -27,7 +27,7 @@ public class DAOUsers extends MyConnection{
 	{
 		try
 		{
-			this.conectar();
+			this.connect();
 			String sql="insert into users (userNickname,userName,e_mail,pass) values (?,?,?,?);";
 			PreparedStatement prep=getCon().prepareStatement(sql);
 			prep.setString(1, user.getUserNickname());
@@ -44,7 +44,7 @@ public class DAOUsers extends MyConnection{
 		
 		finally
 		{
-			this.desconectar();
+			this.disconnect();
 		}
 	}
 	
@@ -54,7 +54,7 @@ public class DAOUsers extends MyConnection{
 		
 		try
 		{
-			this.conectar();
+			this.connect();
 			ResultSet res;
 			String sql ="select*from users where userNickname=? and pass=?";
 			PreparedStatement prep=getCon().prepareStatement(sql);
@@ -79,7 +79,7 @@ public class DAOUsers extends MyConnection{
 		
 		finally
 		{
-			this.desconectar();
+			this.disconnect();
 		}
 		return user;
 	}
@@ -88,7 +88,7 @@ public class DAOUsers extends MyConnection{
 	{
 		try
 		{
-			this.conectar();
+			this.connect();
 			String sql = "update users set userNickname=?,userName=?,e_mail=?,pass=? where id=?";
 			PreparedStatement prep = getCon().prepareStatement(sql);
 			prep.setString(1, user.getUserNickname());
@@ -107,7 +107,7 @@ public class DAOUsers extends MyConnection{
 		
 		finally
 		{
-			this.desconectar();
+			this.disconnect();
 		}
 	}
 	
@@ -126,7 +126,7 @@ public class DAOUsers extends MyConnection{
 		
 		try
 		{
-			this.conectar();
+			this.connect();
 			String sql="select "+param+" from users";
 			PreparedStatement prep=getCon().prepareStatement(sql);
 			ResultSet res= prep.executeQuery();
@@ -144,7 +144,7 @@ public class DAOUsers extends MyConnection{
 		
 		finally
 		{
-			this.desconectar();
+			this.disconnect();
 		}
 		return list;
 	}

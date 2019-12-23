@@ -11,7 +11,7 @@ public class DAOIntegralObject extends MyConnection{
 	{
 		try
 		{
-			this.conectar();
+			this.connect();
 			String sql="insert into integrals values(?,?);";
 			PreparedStatement prep=getCon().prepareStatement(sql);
 			prep.setString(1, integral.getClassName());		
@@ -28,7 +28,7 @@ public class DAOIntegralObject extends MyConnection{
 		
 		finally
 		{
-			this.desconectar();
+			this.disconnect();
 		}
 	}
 	
@@ -38,7 +38,7 @@ public class DAOIntegralObject extends MyConnection{
 		ResultSet res;
 		try
 		{
-			this.conectar();
+			this.connect();
 			String sql="select*from integrals";
 			PreparedStatement prep=getCon().prepareStatement(sql);
 			res=prep.executeQuery();
@@ -59,7 +59,7 @@ public class DAOIntegralObject extends MyConnection{
 		
 		finally
 		{
-			this.desconectar();
+			this.disconnect();
 		}
 		return list;
 	}

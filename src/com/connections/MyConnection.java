@@ -17,7 +17,7 @@ public class MyConnection {
 		this.con=con;
 	}
 	
-	public void conectar()
+	public void connect()
 	{
 		try
 		{
@@ -29,7 +29,7 @@ public class MyConnection {
 		}
 	}
 	
-	public void desconectar()
+	public void disconnect()
 	{
 		try
 		{
