@@ -23,8 +23,6 @@ String name=request.getParameter("name");
 
 session.setAttribute("description", description);
 session.setAttribute("name", name);
-
-session.removeAttribute("begin");
 session.setAttribute("begin", 0);
 }}
 
@@ -45,14 +43,9 @@ values of x variable: <input type="text" name="x">
 </form>
 <%
 if(request.getAttribute("ans")!=null)
-{
-	
-String ans=request.getAttribute("ans").toString();
-if(ans!=null)
-{
+{	
+    String ans=request.getAttribute("ans").toString();
 	out.print(ans);
-}
-
 }
 %>
 <hr>
