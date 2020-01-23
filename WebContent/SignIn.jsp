@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
+session.setAttribute("user", false);
 boolean error=false;
 try
 {	

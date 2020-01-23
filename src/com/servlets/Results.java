@@ -2,8 +2,6 @@ package com.servlets;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.Format;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +19,7 @@ public class Results extends HttpServlet {
         super();
     }
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DecimalFormat f= new DecimalFormat("###,###.#####");
 		HttpSession session=request.getSession();
@@ -32,6 +31,7 @@ public class Results extends HttpServlet {
 		try
 		{
 			x=Double.parseDouble(request.getParameter("x"));
+			request.setAttribute("x", x);
 		}
 
 		catch(Exception e)
@@ -83,6 +83,7 @@ public class Results extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

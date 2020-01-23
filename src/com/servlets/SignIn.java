@@ -9,9 +9,12 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.codec.digest.DigestUtils;
+
+import com.classes.User;
 import com.connections.DAOUsers;
-import com.classes.*;
 /**
  * Servlet implementation class SignIn
  */
@@ -30,6 +33,7 @@ public class SignIn extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user=request.getParameter("user");
 		String pass=request.getParameter("pass");
@@ -42,6 +46,10 @@ public class SignIn extends HttpServlet {
 		{
 			Cookie cookieUser=new Cookie("ImpossibleIntegralsUser", user);
 			cookieUser.setMaxAge(365*24*60*60);
+			
+			HttpSession session=request.getSession();
+			session.setAttribute("user", true);
+			session.setAttribute("userni", user);
 			
 			response.addCookie(cookieUser);
 			RequestDispatcher rd= request.getRequestDispatcher("ListResources.jsp");

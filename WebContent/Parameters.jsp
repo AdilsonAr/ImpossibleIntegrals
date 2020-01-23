@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,13 @@
 </h3><br> 
 <hr>
 <%
+double valueX =0;
+boolean value=false;
+if (request.getAttribute("x")!=null)
+{
+	value=true;
+	valueX=(Double) request.getAttribute("x");
+}
 try
 {
 if(session.getAttribute("begin").equals(1))
@@ -27,7 +36,7 @@ session.setAttribute("begin", 0);
 }}
 
 catch(Exception e)
-{
+{ 
 }
 
 String path="images/"+session.getAttribute("name")+".png";
@@ -38,7 +47,9 @@ out.println("<img alt=\"integral image\" src=\""+path+"\">");
 Give us your parameters to solve <%=session.getAttribute("name") %>!
 </h5>
 <form action="Results" method="get">
-values of x variable: <input type="text" name="x">
+values of x variable: <input type="text" name="x"
+<%if(value) out.print("value=\" "+valueX+"\"");%>
+>
 <input type="submit" value=">>">
 </form>
 <%
@@ -49,5 +60,21 @@ if(request.getAttribute("ans")!=null)
 }
 %>
 <hr>
+
+<%
+ ArrayList <String> list=new ArrayList(); 
+list.add("hola");
+list.add("funciona :)");
+%>
+
+<textarea rows="<%=list.size() %>" cols="100">
+<%
+for(String current:list)
+{
+	out.print(current+"\n\n");
+}
+%>
+</textarea>
+
 </body>
 </html>
