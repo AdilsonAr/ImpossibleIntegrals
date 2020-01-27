@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,13 @@
 	%>
 
 	<h3 style="color: red; font-size: large;text-align: left;">
-		<a href="Home.html">/Home/</a> <a href="ListResources.jsp">choose
+		<%
+			pageContext.setAttribute("fal", false);
+		%>
+		<c:if test="${user}==${fal}">
+			<a href="Home.html">/Home/</a>
+		</c:if>
+		<a href="ListResources.jsp">choose
 			a integral/</a> <a href=User.jsp>User area/</a>
 	</h3>
 

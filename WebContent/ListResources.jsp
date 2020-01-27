@@ -24,13 +24,15 @@
 	<h3 style="color: red; font-size: large;">
 	<%
 		if (user) {
+			String userni=(String)session.getAttribute("userni");
 			out.print("<table width=\"100%\">");
 			out.print("<tr>");
+			
 			out.print("<td>");
-			out.print("<a href=\"Home.html\">/Home</a>");
-			out.print("<td>");
+			out.print("</td>");
+			
 			out.print("<td style=\"text-align: right;\">");
-			out.print("<form action=\"User.jsp\"><input type=\"submit\" value=\"User\" ></form>"
+			out.print(userni+"<form action=\"User.jsp\"><input type=\"submit\" value=\"User\" ></form>"
 			+"</td></tr></table>");
 		} 
 		

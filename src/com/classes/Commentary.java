@@ -2,6 +2,16 @@ package com.classes;
 
 public class Commentary {
 
+	public Commentary() {
+		
+	}
+	
+	public Commentary(String name, String text) {
+		super();
+		this.name = name;
+		this.text = text;
+	}
+	
 	private String name;
 	private String text;
 	

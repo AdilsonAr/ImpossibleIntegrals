@@ -1,7 +1,10 @@
+<%@page import="com.classes.Commentary"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.ArrayList"%>
+<%@page import="com.connections.MongoComment" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +14,14 @@
 <body style="background-color:blue; color:black;font: cursive;font-size:xx-large;text-align: center;">
 
 <h3 style="color:red; font-size: large;text-align:left;">
+<%
+pageContext.setAttribute("tr", true);
+%>
+<c:if test="${user != tr}">
 <a href="Home.html">/Home/</a>
+</c:if>
 <a href="ListResources.jsp">Choose a new integral</a>
-</h3><br> 
+</h3>
 <hr>
 <%
 double valueX =0;
@@ -62,19 +70,27 @@ if(request.getAttribute("ans")!=null)
 <hr>
 
 <%
- ArrayList <String> list=new ArrayList(); 
-list.add("hola");
-list.add("funciona :)");
+ArrayList <Commentary> list=new ArrayList(); 
+String integral =(String)session.getAttribute("name");
+MongoComment mongo=new MongoComment();
+list=mongo.read(integral);
+pageContext.setAttribute("list", list);
 %>
 
-<textarea rows="<%=list.size() %>" cols="100">
-<%
-for(String current:list)
-{
-	out.print(current+"\n\n");
-}
-%>
+<textarea cols="100" readonly="readonly" rows="10" style="color:blue;background-color:aqua;">
+<c:forEach var="current" items="${list}">
+#${current.name}
+${current.text}
+</c:forEach>
 </textarea>
+
+<c:if test="${user}">
+<br>
+<form action="Add" method="post">
+<textarea rows="2" cols="100" name="com"></textarea><br>
+<input type="submit" value="Send">
+</form>
+</c:if>
 
 </body>
 </html>
