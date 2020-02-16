@@ -1,34 +1,19 @@
 package com.connections;
 
 import java.util.ArrayList;
+
 import com.classes.Commentary;
-import com.mongodb.DB;
-import com.mongodb.MongoClient;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
 import com.mongodb.BasicDBObject;
 import com.mongodb.Cursor;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
 
-public class MongoComment {
-	
-	public DBCollection Collection(String integral)
-	{
-		DBCollection coll=null;	
-		try {
-			MongoClient mongoClient=new MongoClient("localhost",27017);
-			DB database=mongoClient.getDB("ImpossibleIntegrals");
-			coll=database.getCollection(integral);
-		}
-		
-		catch(Exception e){	
-		}
-		
-		return coll;
-	}
+public class MongoComment {		
+	    DatabaseImpossible db=DatabaseImpossible.getDatabaseImpossible();
 	
 	public ArrayList<Commentary> read(String integral)
 	{
-		DBCollection coll=Collection(integral);
+		DBCollection coll=db.getDatabaseColumn(integral);
 		Cursor cursor=coll.find();
 		
 		ArrayList<Commentary> list=new ArrayList();
@@ -46,7 +31,7 @@ public class MongoComment {
 	
 	public void create(Commentary co,String integral)
 	{	
-		DBCollection coll=Collection(integral);
+		DBCollection coll=db.getDatabaseColumn(integral);
 		BasicDBObject obj= new BasicDBObject("name",co.getName()).append("text", co.getText());
 		coll.insert(obj);
 	}
